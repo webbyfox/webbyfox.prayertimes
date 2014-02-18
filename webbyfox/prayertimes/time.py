@@ -18,61 +18,64 @@ from plone.dexterity.browser.add import DefaultAddForm, DefaultAddView
 
 #from z3c.form.browser.textlines import TextLinesFieldWidget
 
-from interfaces import IExcludeFromNavigationForm
+#from interfaces import IExcludeFromNavigationForm
 
 # import for edit form
 from plone.directives import dexterity, form
 
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 
+# widget for datetime
+from collective.z3cform.datetimewidget.widget_datetime import Datetimewidget
+
 class ITime(model.Schema):
     """
     Prayer time content types for Masjid. 
     """
-    
-     title = schema.DateTime(
+    form.widget(title='Datetimewidget')
+    title = schema.Date(
         title=_(u"Date which you would like to add prayer times"),
         required = False,
         )
 
     fajr_beings  = schema.Timedelta(
-        title = _("Fajr begins time")
+        title = _("Fajr begins time"),
         required=False,)
   
     fajr_jamaat = schema.Timedelta(
-	title = _("Fajr jamaat time")
-	required=False,)
+	   title = _("Fajr jamaat time"),
+	   required=False,)
     
     dhor_begins = schema.Timedelta(
-        title = _("Dhor begins")
+        title = _("Dhor begins"),
         required=False,)
     
     dhor_jamaat = schema.Timedelta(
-        title = _("Dhor jamaat time")
+        title = _("Dhor jamaat time"),
         required=False,)
 
     asar_begins = schema.Timedelta(
-        title = _("Asar begins")
+        title = _("Asar begins"),
         required=False,)
 
     asar_jamaat = schema.Timedelta(
-        title = _("Asar jamaat time")
+        title = _("Asar jamaat time"),
         required=False,)
     
     magrib_begins = schema.Timedelta(
-        title = _("Magrib begins")
+        title = _("Magrib begins"),
         required=False,)
 
     magrib_jamaat = schema.Timedelta(
-        title = _("Magrib jamaat time")
+        title = _("Magrib jamaat time"),
         required=False,) 
     
     esha_begin  = schema.Timedelta(
-        title = _("Esha begins")
+        title = _("Esha begins"),
         required=False,)
 
     esha_jamaat = schema.Timedelta(
-        title = _("Esha jamaat time")
+        title = _("Esha jamaat time"),
         required=False,)
    
 
@@ -88,7 +91,7 @@ class ITime(model.Schema):
 #    return True    
     
 class View(grok.View):
-    grok.context(ITime))
+    grok.context(ITime)
     grok.require('zope2.View')
     grok.name('view')
 
@@ -107,7 +110,7 @@ class AddView(DefaultAddView):
     
 class EditForm(dexterity.EditForm):
     
-    grok.context(ITime))
+    grok.context(ITime)
    # enable_form_tabbing = True
 
     def updateWidgets(self):

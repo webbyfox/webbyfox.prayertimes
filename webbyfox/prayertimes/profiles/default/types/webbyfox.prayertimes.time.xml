@@ -4,11 +4,11 @@
    	i18n:domain="webbyfox.prayertimes" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
   <!-- Basic metadata -->
-  <property name="title" i18n:translate="">Add prayer times</property>
+  <property name="title" i18n:translate="">Prayer times</property>
   <property name="description"
     i18n:translate="">Prayer times</property>
   <property name="icon_expr">string:${portal_url}/document_icon.png</property>
-  <property name="factory">enidlinder.app.form</property>
+  <property name="factory">webbyfox.prayertimes.time</property>
   <property name="global_allow">True</property>
   <property name="filter_content_types">True</property>  
   <property name="allowed_content_types" />
@@ -20,7 +20,7 @@
 
   <property name="behaviors">
     <!--<element value="plone.app.content.interfaces.INameFromTitle" />   -->
-	<element value="enidlinder.app.interfaces.IExcludeFromNavigationForm"/>
+	<!--<element value="webbyfox.prayertimes.interfaces.IExcludeFromNavigationForm"/>-->
    </property>
 
   <!-- View information -->

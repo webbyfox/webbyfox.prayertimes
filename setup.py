@@ -28,6 +28,7 @@ setup(name='webbyfox.prayertimes',
           'setuptools',
           'plone.app.dexterity [grok, relations]',
           'plone.namedfile [blobs]',
+          'collective.z3cform.datetimewidget',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
